@@ -1,0 +1,71 @@
+import { AfterContentInit, ContentChildren, Directive, OnDestroy, QueryList } from "@angular/core";
+import { Subscription } from "rxjs";
+import { RouterTab } from "./router-tab";
+import { MatTabGroup } from "@angular/material/tabs";
+import { NavigationEnd, Router } from "@angular/router";
+
+
+@Directive({
+    selector:'[routerTabs]'
+})
+
+export class RouterTabs implements AfterContentInit , OnDestroy {
+
+
+    subscription =  new Subscription();
+
+    @ContentChildren(RouterTab) routerTabs:QueryList<RouterTab> | undefined;
+
+    constructor(private host:MatTabGroup, private router:Router) {
+
+    }
+
+
+
+    ngOnDestroy(): void {
+        this.subscription.unsubscribe();
+        
+        
+    }
+
+
+
+
+
+
+    ngAfterContentInit(): void {
+        this.setIndex();
+        this.subscription.add(
+          this.router.events.subscribe(e => {
+            if (e instanceof NavigationEnd) {
+              this.setIndex();
+            }
+          })
+        );
+        this.subscription.add(
+          this.host.selectedTabChange.subscribe(() => {
+            const tab = this.routerTabs?.find(item => item.tab.isActive);
+            if (!tab || !tab.link.urlTree) {
+              return;
+            }
+            this.router.navigateByUrl(tab.link.urlTree);
+            return true;
+          })
+        );
+      }
+    
+      private setIndex() {
+        this.routerTabs?.find((tab, i) => {
+          if (!this.router.isActive || (tab.link.urlTree, false)) return false;
+          tab.tab.isActive = true;
+          this.host.selectedIndex = i;
+          return true;
+        });
+      }
+
+
+   
+
+
+    
+}

@@ -3,32 +3,38 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './admin/header/header.component';
-import { SidenavComponent } from './admin/sidenav/sidenav.component';
-import { LayoutComponent } from './admin/layout/layout.component';
-import { RegisterComponent } from './login/register/register.component';
-import { LoginComponent } from './login/login/login.component';
-import { HomeComponent } from './public/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
+import { MaterialModule } from './shared/material/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { UserComponent } from './admin/entity/user/user.component';
+import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core/core-module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    SidenavComponent,
-    LayoutComponent,
-    RegisterComponent,
-    LoginComponent,
-    HomeComponent,
-    PageNotFoundComponent
+    UserComponent,
+    
+
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    SharedModule,
+    CoreModule
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
+
 export class AppModule { }
