@@ -3,6 +3,9 @@ import { NgModel } from "@angular/forms";
 import { Route, RouterModule, Routes } from "@angular/router";
 import { LayoutComponent } from "./layout.component";
 import { UserComponent } from "./entity/user/user.component";
+import { UserRouterAccessGuard } from "../core/user-router-access.guard";
+import { Lavozim } from "../shared/model.ts/lavozim";
+import { DarsComponent } from "./entity/dars/dars.component";
 
 const routes:Routes = [
     {
@@ -17,12 +20,18 @@ const routes:Routes = [
             {
                 path:'user',
                 component:UserComponent,
-                // canActivate:[]
+              canActivate:[UserRouterAccessGuard],
+              data:{
+
+                authorities:[Lavozim.ADMIN,Lavozim.MANAGER]
+
+              }
+                
+               
 
             },
 
-
-            // pathlar
+             {path:"dars", component:DarsComponent}
             
         ]
     }

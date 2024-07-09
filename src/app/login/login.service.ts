@@ -16,6 +16,7 @@ export class LoginService {
 
 
 
+
   login(loginParol: any): Observable<any> {
     return this.http.post<any>(this.api + "/authenticate", loginParol)
     .pipe( map((token)=>{     
@@ -24,9 +25,16 @@ export class LoginService {
       })
     );
   }
+
+
+
+
   register(user: User): Observable<any> {
     return this.http.post<any>(this.api + "/register", user);
   }
+
+
+  
   logout(): void {
     this.jwtUtil.clear();
     this.accountService.authenticate(null);

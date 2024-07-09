@@ -13,7 +13,9 @@ export class AccauntService {
   private userIdentity: User | null = null;
   private authenticationState = new ReplaySubject<User | null>(1);
   private userCache$?: Observable<User | null>;
+
   private baseApi = environment.baseUrl + "/api/account";
+  
   constructor(
     private http: HttpClient,
     private router: Router,
@@ -90,4 +92,6 @@ export class AccauntService {
   //     this.router.navigateByUrl(previousUrl);
   //   }
   // }
+
+  
 }
