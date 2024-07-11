@@ -10,7 +10,7 @@ import { map, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class LoginService {
-  api = environment.baseUrl+"/api/account";
+  api = environment.baseUrl + "/api/account";
 
   constructor(public jwtUtil: jwtUtil, public http: HttpClient, public accountService: AccauntService) { }
 

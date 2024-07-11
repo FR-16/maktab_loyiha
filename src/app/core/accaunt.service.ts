@@ -79,7 +79,7 @@ export class AccauntService {
   private fetch(): Observable<User> {
     console.log('fetching . . .');
 
-    return this.http.get<User>(this.baseApi);
+    return this.http.get<User>(this.baseApi); 
 
   }
 

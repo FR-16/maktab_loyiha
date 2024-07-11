@@ -14,7 +14,7 @@ const routes:Routes = [
         children:[
             {
                 path:'',
-                redirectTo:'dars'
+                redirectTo:"dars"
             },
 
             {
@@ -22,7 +22,6 @@ const routes:Routes = [
                 component:UserComponent,
               canActivate:[UserRouterAccessGuard],
               data:{
-
                 authorities:[Lavozim.ADMIN,Lavozim.MANAGER]
 
               }
@@ -31,7 +30,7 @@ const routes:Routes = [
 
             },
 
-             {path:"dars", component:DarsComponent}
+             {path:"dars", component:DarsComponent }
             
         ]
     }
