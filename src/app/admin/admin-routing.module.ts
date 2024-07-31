@@ -4,8 +4,8 @@ import { Route, RouterModule, Routes } from "@angular/router";
 import { LayoutComponent } from "./layout.component";
 import { UserComponent } from "./entity/user/user.component";
 import { UserRouterAccessGuard } from "../core/user-router-access.guard";
-import { Lavozim } from "../shared/model.ts/lavozim";
 import { DarsComponent } from "./entity/dars/dars.component";
+import { Lavozim } from "../shared/model.ts/lavozimlar";
 
 const routes:Routes = [
     {
@@ -25,9 +25,6 @@ const routes:Routes = [
                 authorities:[Lavozim.ADMIN,Lavozim.MANAGER]
 
               }
-                
-               
-
             },
 
              {path:"dars", component:DarsComponent }

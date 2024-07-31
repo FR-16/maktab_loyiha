@@ -1,4 +1,4 @@
-export interface Fan {
+export  interface Fan {
     id:number;
     nom:String;
 }

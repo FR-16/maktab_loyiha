@@ -1,9 +1,8 @@
-
-
 export interface UquvYili {
-    id:number;
-    boshlanganVaqt:Date;
-    tugaganVaqt:Date;
-    izoh:String;
 
-}
+id:number;
+BoshlanganVaqt:Date;
+tugaganVaqt:Date;
+izoh:string;
+
+} 
